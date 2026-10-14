@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ห้องนี้ต้องมี — ลิงก์สินค้าทุกเบอร์</title>
+<meta name="description" content="ลิงก์สินค้าทุกเบอร์จากคลิป">
+<link rel="icon" href="logo.png">
+<meta property="og:image" content="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#fff6f0; --card:#ffffff; --ink:#1c1a19; --mute:#7a726c; --accent:#ff5c35; --line:#f0e4dc;
+          --soft:#ffe7dc; --shopee:#ee4d2d; --lazada:#101566; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#161413; --card:#211e1c; --ink:#f4efea; --mute:#a69d96; --line:#332e2a; --soft:#3a2219; --lazada:#3a46d6; }
+  }
+  * { box-sizing:border-box; }
+  html { -webkit-text-size-adjust:100%; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:Sarabun, system-ui, sans-serif; }
+  main { max-width:560px; margin:0 auto; padding:28px 16px 56px; }
+  header { display:flex; align-items:center; gap:14px; margin-bottom:6px; }
+  header img { width:64px; height:64px; border-radius:50%; flex:none; }
+  h1 { font-size:28px; margin:0; font-weight:800; line-height:1.15; }
+  .tag { color:var(--mute); margin:2px 0 0; font-size:15px; line-height:1.4; }
+  .how { margin:18px 0 0; background:var(--soft); border-radius:14px; padding:10px 14px; font-weight:600; font-size:15px; }
+  .how b { color:var(--accent); }
+  .search { position:sticky; top:0; background:var(--bg); padding:12px 0; z-index:2; }
+  .field { position:relative; }
+  .field span { position:absolute; left:16px; top:50%; transform:translateY(-50%); font-weight:800;
+                font-size:20px; color:var(--accent); pointer-events:none; }
+  input { width:100%; font:inherit; font-size:22px; font-weight:700; padding:14px 16px 14px 74px;
+          border-radius:16px; border:2px solid var(--line); background:var(--card); color:var(--ink); }
+  input::placeholder { font-weight:400; font-size:17px; color:var(--mute); }
+  input:focus { outline:none; border-color:var(--accent); }
+  .item { display:flex; gap:14px; align-items:center; background:var(--card); border:1px solid var(--line);
+          border-radius:18px; padding:12px; margin:10px 0; }
+  .item.hit { border-color:var(--accent); box-shadow:0 0 0 2px var(--accent) inset; }
+  .item img { width:92px; height:92px; object-fit:contain; border-radius:12px; background:#fff; flex:none; }
+  .body { min-width:0; flex:1; }
+  .n { display:inline-block; color:#fff; background:var(--accent); font-weight:800; border-radius:8px;
+       padding:1px 9px; font-size:15px; }
+  .name { font-weight:700; margin:6px 0 10px; line-height:1.35; }
+  .btns { display:flex; gap:8px; }
+  .btns a { flex:1; text-align:center; text-decoration:none; font-weight:700; font-size:15px; padding:10px 8px;
+            border-radius:12px; color:#fff; }
+  .shopee { background:var(--shopee); } .lazada { background:var(--lazada); }
+  .empty { color:var(--mute); text-align:center; margin-top:24px; }
+  footer { color:var(--mute); text-align:center; font-size:13px; margin-top:28px; line-height:1.5; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <img src="logo.png" alt="">
+    <div><h1>ห้องนี้ต้องมี</h1><p class="tag">ของใช้ในห้อง ครัว คอนโด สัตว์เลี้ยง <span style="white-space:nowrap">และของมันต้องมี</span></p></div>
+  </header>
+  <p class="how">ดูเบอร์ที่มุมคลิป แล้ว<b>พิมพ์เบอร์</b>ด้านล่าง กดปุ่มร้านที่สะดวกได้เลย</p>
+  <div class="search"><div class="field"><span>เบอร์</span>
+    <input id="q" inputmode="numeric" placeholder="เช่น 3" autocomplete="off" aria-label="เบอร์สินค้า"></div></div>
+  <div id="list"></div>
+  <p class="empty" id="empty" hidden>ยังไม่มีเบอร์นี้ ลองเช็กเบอร์ในคลิปอีกครั้ง</p>
+  <footer>ปุ่มจะพาไปหน้าร้านบน Shopee / Lazada<br>ราคาและโปรโมชันล่าสุดดูที่หน้าร้าน</footer>
+</main>
+<script>
+let ITEMS = [];
+const list = document.getElementById('list'), q = document.getElementById('q'), empty = document.getElementById('empty');
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function render(){
+  const term = q.value.trim().replace(/^#/, '').replace(/^เบอร์\s*/, '');
+  const rows = ITEMS.filter(it => !term || String(it.n) === term || it.name.toLowerCase().includes(term.toLowerCase()));
+  list.innerHTML = rows.map(it => `
+    <div class="item${term && String(it.n) === term ? ' hit' : ''}" id="n${it.n}">
+      ${it.img ? `<img src="${esc(it.img)}" alt="" loading="lazy">` : ''}
+      <div class="body"><span class="n">เบอร์ ${it.n}</span>
+        <div class="name">${esc(it.name)}</div>
+        <div class="btns">
+          ${it.links.shopee ? `<a class="shopee" href="${esc(it.links.shopee)}" rel="sponsored noopener">Shopee</a>` : ''}
+          ${it.links.lazada ? `<a class="lazada" href="${esc(it.links.lazada)}" rel="sponsored noopener">Lazada</a>` : ''}
+        </div></div>
+    </div>`).join('');
+  empty.hidden = rows.length > 0;
+  empty.textContent = ITEMS.length ? 'ยังไม่มีเบอร์นี้ ลองเช็กเบอร์ในคลิปอีกครั้ง' : 'คลิปแรกกำลังจะมา รอติดตามได้เลย';
+}
+q.addEventListener('input', render);
+const h = location.hash.replace('#', ''); if (h) q.value = h.replace(/^n/, '');
+fetch('items.json', {cache: 'no-store'}).then(r => r.ok ? r.json() : []).then(items => { ITEMS = items.sort((a, b) => b.n - a.n); render(); }).catch(() => render());
+</script>
+</body>
+</html>

@@ -42,8 +42,10 @@
        padding:1px 9px; font-size:15px; }
   .name { font-weight:700; margin:6px 0 10px; line-height:1.35; }
   .btns { display:flex; gap:8px; }
-  .btns a { flex:1; text-align:center; text-decoration:none; font-weight:700; font-size:15px; padding:10px 8px;
-            border-radius:12px; color:#fff; }
+  .btns a { flex:1; text-align:center; text-decoration:none; font-weight:700; font-size:15px; padding:8px 8px;
+            border-radius:12px; color:#fff; line-height:1.25; }
+  .btns a small { display:block; font-size:17px; font-weight:800; }
+  .checked { color:var(--mute); font-size:12px; margin-top:6px; }
   .shopee { background:var(--shopee); } .lazada { background:var(--lazada); }
   .empty { color:var(--mute); text-align:center; margin-top:24px; }
   footer { color:var(--mute); text-align:center; font-size:13px; margin-top:28px; line-height:1.5; }
@@ -66,6 +68,11 @@
 let ITEMS = [];
 const list = document.getElementById('list'), q = document.getElementById('q'), empty = document.getElementById('empty');
 function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function btn(it, key, label){
+  if (!it.links[key]) return '';
+  const p = (it.prices || {})[key];
+  return `<a class="${key}" href="${esc(it.links[key])}" rel="sponsored noopener">${label}${p ? `<small>เริ่ม ฿${esc(p)}</small>` : ''}</a>`;
+}
 function render(){
   const term = q.value.trim().replace(/^#/, '').replace(/^เบอร์\s*/, '');
   const rows = ITEMS.filter(it => !term || String(it.n) === term || it.name.toLowerCase().includes(term.toLowerCase()));
@@ -75,9 +82,9 @@ function render(){
       <div class="body"><span class="n">เบอร์ ${it.n}</span>
         <div class="name">${esc(it.name)}</div>
         <div class="btns">
-          ${it.links.shopee ? `<a class="shopee" href="${esc(it.links.shopee)}" rel="sponsored noopener">Shopee</a>` : ''}
-          ${it.links.lazada ? `<a class="lazada" href="${esc(it.links.lazada)}" rel="sponsored noopener">Lazada</a>` : ''}
-        </div></div>
+          ${btn(it, 'shopee', 'Shopee')}
+          ${btn(it, 'lazada', 'Lazada')}
+        </div>${it.checked ? `<div class="checked">ราคาเริ่มต้นเมื่อ ${esc(it.checked)} — ราคาล่าสุดดูที่หน้าร้าน</div>` : ''}</div>
     </div>`).join('');
   empty.hidden = rows.length > 0;
   empty.textContent = ITEMS.length ? 'ยังไม่มีเบอร์นี้ ลองเช็กเบอร์ในคลิปอีกครั้ง' : 'คลิปแรกกำลังจะมา รอติดตามได้เลย';

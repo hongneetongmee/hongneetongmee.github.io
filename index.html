@@ -47,7 +47,25 @@
   .btns a small { display:block; font-size:17px; font-weight:800; }
   .checked { color:var(--mute); font-size:12px; margin-top:6px; }
   .shopee { background:var(--shopee); } .lazada { background:var(--lazada); }
+  .chips { display:flex; gap:8px; overflow-x:auto; padding:10px 0 2px; scrollbar-width:none; }
+  .chips::-webkit-scrollbar { display:none; }
+  .chips button { flex:none; font:inherit; font-size:15px; font-weight:700; padding:6px 14px; border-radius:999px;
+                  border:1.5px solid var(--line); background:var(--card); color:var(--ink); cursor:pointer; }
+  .chips button.on { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .chips button span { font-weight:400; opacity:.75; margin-left:4px; }
+  .cat { display:inline-block; margin-left:6px; font-size:13px; font-weight:700; color:var(--accent);
+         background:var(--soft); border-radius:8px; padding:1px 8px; }
   .empty { color:var(--mute); text-align:center; margin-top:24px; }
+  .ask { margin-top:26px; background:var(--card); border:1px solid var(--line); border-radius:18px; padding:16px; }
+  .ask h2 { font-size:19px; margin:0 0 4px; }
+  .ask p { color:var(--mute); margin:0 0 10px; font-size:15px; }
+  .ask textarea { width:100%; font:inherit; font-size:16px; padding:10px 12px; border-radius:12px; min-height:84px;
+                  border:2px solid var(--line); background:var(--bg); color:var(--ink); resize:vertical; }
+  .ask textarea:focus { outline:none; border-color:var(--accent); }
+  .ask button { margin-top:10px; width:100%; font:inherit; font-size:17px; font-weight:800; padding:11px; border:0;
+                border-radius:12px; background:var(--accent); color:#fff; cursor:pointer; }
+  .ask button:disabled { opacity:.5; cursor:default; }
+  .ask .done { color:var(--accent); font-weight:700; margin:10px 0 0; }
   footer { color:var(--mute); text-align:center; font-size:13px; margin-top:28px; line-height:1.5; }
 </style>
 </head>
@@ -59,14 +77,24 @@
   </header>
   <p class="how">ดูเบอร์ที่มุมคลิป แล้ว<b>พิมพ์เบอร์</b>ด้านล่าง กดปุ่มร้านที่สะดวกได้เลย</p>
   <div class="search"><div class="field"><span>เบอร์</span>
-    <input id="q" inputmode="numeric" placeholder="เช่น 3" autocomplete="off" aria-label="เบอร์สินค้า"></div></div>
+    <input id="q" inputmode="numeric" placeholder="เช่น 3" autocomplete="off" aria-label="เบอร์สินค้า"></div>
+    <div class="chips" id="chips" role="tablist" aria-label="หมวดสินค้า"></div></div>
   <div id="list"></div>
   <p class="empty" id="empty" hidden>ยังไม่มีเบอร์นี้ ลองเช็กเบอร์ในคลิปอีกครั้ง</p>
+  <form class="ask" id="ask" hidden>
+    <h2>อยากให้รีวิวของชิ้นไหน?</h2>
+    <p>พิมพ์ชื่อสินค้าหรือของที่ตามหา เดี๋ยวช่องหามาทำคลิปให้</p>
+    <textarea id="askText" maxlength="300" required placeholder="เช่น ที่เก็บสายชาร์จติดโต๊ะ, ชั้นวางเครื่องปรุงในครัว"></textarea>
+    <button type="submit" id="askBtn">ส่งคำขอ</button>
+    <p class="done" id="askDone" hidden>ได้รับแล้ว ขอบคุณมาก ๆ 🙏</p>
+  </form>
   <footer>ปุ่มจะพาไปหน้าร้านบน Shopee / Lazada<br>ราคาและโปรโมชันล่าสุดดูที่หน้าร้าน</footer>
 </main>
 <script>
-let ITEMS = [];
+let ITEMS = [], CAT = '';
+const REQUEST = {"action": "https://docs.google.com/forms/d/e/1FAIpQLSeUbKLD04pfBr8y9iNTtJOLABjryf3MftrNfiMa4QN4yMUUgQ/formResponse", "field": "entry.1533315320"}, ORDER = ["ห้องครัว", "ห้องน้ำ", "จัดเก็บ", "ซักผ้า-ทำความสะอาด", "สัตว์เลี้ยง", "ของใช้ในห้อง"];
 const list = document.getElementById('list'), q = document.getElementById('q'), empty = document.getElementById('empty');
+const chips = document.getElementById('chips');
 function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
 function btn(it, key, label){
   if (!it.links[key]) return '';
@@ -75,11 +103,14 @@ function btn(it, key, label){
 }
 function render(){
   const term = q.value.trim().replace(/^#/, '').replace(/^เบอร์\s*/, '');
-  const rows = ITEMS.filter(it => !term || String(it.n) === term || it.name.toLowerCase().includes(term.toLowerCase()));
+  // พิมพ์เบอร์ = หาทุกหมวด (คนมาจากคลิปต้องเจอเบอร์เสมอ) / ชื่อหรือว่าง = กรองตามหมวดที่เลือก
+  const isNum = /^[0-9]+$/.test(term);
+  const rows = ITEMS.filter(it => (isNum || !CAT || it.cat === CAT) &&
+    (!term || String(it.n) === term || it.name.toLowerCase().includes(term.toLowerCase())));
   list.innerHTML = rows.map(it => `
     <div class="item${term && String(it.n) === term ? ' hit' : ''}" id="n${it.n}">
       ${it.img ? `<img src="${esc(it.img)}" alt="" loading="lazy">` : ''}
-      <div class="body"><span class="n">เบอร์ ${it.n}</span>
+      <div class="body"><span class="n">เบอร์ ${it.n}</span>${it.cat ? `<span class="cat">${esc(it.cat)}</span>` : ''}
         <div class="name">${esc(it.name)}</div>
         <div class="btns">
           ${btn(it, 'shopee', 'Shopee')}
@@ -89,9 +120,38 @@ function render(){
   empty.hidden = rows.length > 0;
   empty.textContent = ITEMS.length ? 'ยังไม่มีเบอร์นี้ ลองเช็กเบอร์ในคลิปอีกครั้ง' : 'คลิปแรกกำลังจะมา รอติดตามได้เลย';
 }
+function renderChips(){
+  const count = {};
+  ITEMS.forEach(it => { if (it.cat) count[it.cat] = (count[it.cat] || 0) + 1; });
+  const cats = Object.keys(count).sort((a, b) => (ORDER.indexOf(a) + 1 || 99) - (ORDER.indexOf(b) + 1 || 99));
+  chips.hidden = cats.length < 2;
+  chips.innerHTML = [['', 'ทั้งหมด', ITEMS.length], ...cats.map(c => [c, c, count[c]])].map(([v, label, n]) =>
+    `<button type="button" role="tab" data-cat="${esc(v)}" class="${v === CAT ? 'on' : ''}" aria-selected="${v === CAT}">${esc(label)}<span>${n}</span></button>`).join('');
+}
+chips.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  CAT = b.dataset.cat; renderChips(); render();
+});
 q.addEventListener('input', render);
 const h = location.hash.replace('#', ''); if (h) q.value = h.replace(/^n/, '');
-fetch('items.json', {cache: 'no-store'}).then(r => r.ok ? r.json() : []).then(items => { ITEMS = items.sort((a, b) => b.n - a.n); render(); }).catch(() => render());
+fetch('items.json', {cache: 'no-store'}).then(r => r.ok ? r.json() : []).then(items => { ITEMS = items.sort((a, b) => b.n - a.n); renderChips(); render(); }).catch(() => render());
+
+// ขอสินค้า → Google Form ของเจ้าของช่อง (ส่งแบบ no-cors: Google ไม่ตอบกลับให้อ่าน แต่บันทึกคำตอบ)
+const ask = document.getElementById('ask');
+if (REQUEST.action && REQUEST.field) {
+  ask.hidden = false;
+  ask.addEventListener('submit', e => {
+    e.preventDefault();
+    const text = document.getElementById('askText'), btn = document.getElementById('askBtn');
+    const msg = text.value.trim(); if (!msg) return;
+    const body = new URLSearchParams(); body.append(REQUEST.field, msg);  // แบบเดียวกับฟอร์ม HTML ปกติ
+    btn.disabled = true;
+    fetch(REQUEST.action, {method: 'POST', mode: 'no-cors', body})
+      .then(() => { text.value = ''; document.getElementById('askDone').hidden = false; })
+      .catch(() => { alert('ส่งไม่สำเร็จ ลองใหม่อีกครั้งนะ'); })
+      .finally(() => { btn.disabled = false; });
+  });
+}
 </script>
 </body>
 </html>

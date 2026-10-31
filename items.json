@@ -43,5 +43,20 @@
    "shopee": "16"
   },
   "checked": "18 ต.ค."
+ },
+ {
+  "n": 4,
+  "name": "ราวตากผ้าสแตนเลสพับได้",
+  "cat": "ซักผ้า-ทำความสะอาด",
+  "img": "https://th-live.slatic.net/p/21622babface57577fb95025476858be.jpg",
+  "links": {
+   "lazada": "https://s.lazada.co.th/s.ZPdYkE?t=p-i5RPru8-sMwjY5P&sub_id1=n4&sub_id2=lp",
+   "shopee": "https://s.shopee.co.th/an_redir?origin_link=https%3A%2F%2Fshopee.co.th%2Fproduct%2F1387363081%2F42653267150&affiliate_id=15347810016&sub_id=n4-lp"
+  },
+  "prices": {
+   "lazada": "222",
+   "shopee": "209"
+  },
+  "checked": "17 ต.ค."
  }
 ]

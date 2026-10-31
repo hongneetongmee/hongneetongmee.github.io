@@ -28,5 +28,20 @@
    "shopee": "83"
   },
   "checked": "17 ต.ค."
+ },
+ {
+  "n": 3,
+  "name": "แปรงกำจัดขนสัตว์ กดปุ่มดันขนออก",
+  "cat": "สัตว์เลี้ยง",
+  "img": "https://th-live.slatic.net/p/b0e6b8fc6603060e7b8641b2196b6966.jpg",
+  "links": {
+   "lazada": "https://s.lazada.co.th/s.ZPdYkh?t=p-i4uOCHj-sJssywp&sub_id1=n3&sub_id2=lp",
+   "shopee": "https://s.shopee.co.th/an_redir?origin_link=https%3A%2F%2Fshopee.co.th%2Fproduct%2F1540275579%2F44352723416&affiliate_id=15347810016&sub_id=n3-lp"
+  },
+  "prices": {
+   "lazada": "59",
+   "shopee": "16"
+  },
+  "checked": "18 ต.ค."
  }
 ]

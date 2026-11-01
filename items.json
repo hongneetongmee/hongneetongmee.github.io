@@ -73,5 +73,20 @@
    "shopee": "85"
   },
   "checked": "17 ต.ค."
+ },
+ {
+  "n": 6,
+  "name": "เก้าอี้กล่องเก็บของพับได้",
+  "cat": "จัดเก็บ",
+  "img": "https://th-live.slatic.net/p/a2f6632bdab798cb797db5e007e63865.jpg",
+  "links": {
+   "lazada": "https://s.lazada.co.th/s.ZPdYl1?t=p-i5AVJy1-sLJtqpE&sub_id1=n6&sub_id2=lp",
+   "shopee": "https://s.shopee.co.th/an_redir?origin_link=https%3A%2F%2Fshopee.co.th%2Fproduct%2F973336393%2F23871967366&affiliate_id=15347810016&sub_id=n6-lp"
+  },
+  "prices": {
+   "lazada": "225",
+   "shopee": "218"
+  },
+  "checked": "18 ต.ค."
  }
 ]

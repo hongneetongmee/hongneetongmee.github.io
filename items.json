@@ -133,5 +133,20 @@
    "shopee": "59"
   },
   "checked": "18 ต.ค."
+ },
+ {
+  "n": 10,
+  "name": "ไม้รีดน้ำพื้น",
+  "cat": "ซักผ้า-ทำความสะอาด",
+  "img": "https://th-live-01.slatic.net/p/f82ea6595f791ba8c5b91409cde05fd8.jpg",
+  "links": {
+   "lazada": "https://s.lazada.co.th/s.ZPdYm6?t=p-i5bSC0T-sOUYxmw&sub_id1=n10&sub_id2=lp",
+   "shopee": "https://s.shopee.co.th/an_redir?origin_link=https%3A%2F%2Fshopee.co.th%2Fproduct%2F478799791%2F56215045690&affiliate_id=15347810016&sub_id=n10-lp"
+  },
+  "prices": {
+   "lazada": "58",
+   "shopee": "33"
+  },
+  "checked": "18 ต.ค."
  }
 ]

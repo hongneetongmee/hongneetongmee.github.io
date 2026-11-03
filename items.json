@@ -118,5 +118,20 @@
    "shopee": "109"
   },
   "checked": "18 ต.ค."
+ },
+ {
+  "n": 9,
+  "name": "รางบอลแมว 4 ชั้น",
+  "cat": "สัตว์เลี้ยง",
+  "img": "https://filebroker-cdn.lazada.co.th/kf/S6c1fd282d75048fa963b9c5afcbb7023e.jpg",
+  "links": {
+   "lazada": "https://s.lazada.co.th/s.ZPdYOv?t=p-i5dl0ij-sNtjqzM&sub_id1=n9&sub_id2=lp",
+   "shopee": "https://s.shopee.co.th/an_redir?origin_link=https%3A%2F%2Fshopee.co.th%2Fproduct%2F1363385754%2F43729406544&affiliate_id=15347810016&sub_id=n9-lp"
+  },
+  "prices": {
+   "lazada": "65",
+   "shopee": "59"
+  },
+  "checked": "18 ต.ค."
  }
 ]

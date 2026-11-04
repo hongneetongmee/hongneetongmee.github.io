@@ -148,5 +148,20 @@
    "shopee": "33"
   },
   "checked": "18 ต.ค."
+ },
+ {
+  "n": 11,
+  "name": "ชั้นวางรองเท้า",
+  "cat": "จัดเก็บ",
+  "img": "https://th-live-01.slatic.net/p/ed52dcf6acc61e82a4763f57a3ce8f27.jpg",
+  "links": {
+   "lazada": "https://s.lazada.co.th/s.ZO2fUK?t=p-i5hDg8c-sPtcLWm&sub_id1=n11&sub_id2=lp",
+   "shopee": "https://s.shopee.co.th/an_redir?origin_link=https%3A%2F%2Fshopee.co.th%2Fproduct%2F1296030490%2F29705219761&affiliate_id=15347810016&sub_id=n11-lp"
+  },
+  "prices": {
+   "lazada": "86",
+   "shopee": "63"
+  },
+  "checked": "22 ต.ค."
  }
 ]

@@ -163,5 +163,20 @@
    "shopee": "63"
   },
   "checked": "22 ต.ค."
+ },
+ {
+  "n": 12,
+  "name": "กล่องใส่รองเท้าฝาหน้า",
+  "cat": "จัดเก็บ",
+  "img": "https://th-live-01.slatic.net/p/1d9c0b8cbe8ddf229e8baaa359d55941.jpg",
+  "links": {
+   "lazada": "https://s.lazada.co.th/s.ZO2fTF?t=p-iO8q3F-sKaklD2&sub_id1=n12&sub_id2=lp",
+   "shopee": "https://s.shopee.co.th/an_redir?origin_link=https%3A%2F%2Fshopee.co.th%2Fproduct%2F1538160818%2F41201652117&affiliate_id=15347810016&sub_id=n12-lp"
+  },
+  "prices": {
+   "lazada": "10",
+   "shopee": "26"
+  },
+  "checked": "22 ต.ค."
  }
 ]

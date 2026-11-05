@@ -193,5 +193,20 @@
    "shopee": "16"
   },
   "checked": "22 ต.ค."
+ },
+ {
+  "n": 14,
+  "name": "ไฟเซ็นเซอร์ติดตู้",
+  "cat": "ของใช้ในห้อง",
+  "img": "https://th-live-01.slatic.net/p/0a2a3c9d403f454e382f52a405defdc3.jpg",
+  "links": {
+   "lazada": "https://s.lazada.co.th/s.ZO2f8j?t=p-i4xShpU-sKB7xGv&sub_id1=n14&sub_id2=lp",
+   "shopee": "https://s.shopee.co.th/an_redir?origin_link=https%3A%2F%2Fshopee.co.th%2Fproduct%2F335606579%2F22672226941&affiliate_id=15347810016&sub_id=n14-lp"
+  },
+  "prices": {
+   "lazada": "129",
+   "shopee": "207"
+  },
+  "checked": "22 ต.ค."
  }
 ]

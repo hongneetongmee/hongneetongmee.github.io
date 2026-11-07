@@ -253,5 +253,20 @@
    "shopee": "12"
   },
   "checked": "22 ต.ค."
+ },
+ {
+  "n": 19,
+  "name": "ตู้ข้างเตียง",
+  "cat": "จัดเก็บ",
+  "img": "https://th-live-01.slatic.net/p/d433f34e741d2ad24afd8ef1136259e7.jpg",
+  "links": {
+   "lazada": "https://s.lazada.co.th/s.ZNtOOt?t=p-i5Ez3tb-sLfRs91&sub_id1=n19&sub_id2=lp",
+   "shopee": "https://s.shopee.co.th/an_redir?origin_link=https%3A%2F%2Fshopee.co.th%2Fproduct%2F38126018%2F50910874686&affiliate_id=15347810016&sub_id=n19-lp"
+  },
+  "prices": {
+   "lazada": "209",
+   "shopee": "185"
+  },
+  "checked": "22 ต.ค."
  }
 ]

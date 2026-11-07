@@ -238,5 +238,20 @@
    "shopee": "98"
   },
   "checked": "22 ต.ค."
+ },
+ {
+  "n": 18,
+  "name": "ตะกร้าล้างผัก",
+  "cat": "ห้องครัว",
+  "img": "https://sg-test-11.slatic.net/p/059b27ead2de9f75fb0aa61cf9f2ecfd.jpg",
+  "links": {
+   "lazada": "https://s.lazada.co.th/s.ZNtO9O?t=p-i5PpN9x-sMn4ZS4&sub_id1=n18&sub_id2=lp",
+   "shopee": "https://s.shopee.co.th/an_redir?origin_link=https%3A%2F%2Fshopee.co.th%2Fproduct%2F1202095311%2F54055465748&affiliate_id=15347810016&sub_id=n18-lp"
+  },
+  "prices": {
+   "lazada": "10",
+   "shopee": "12"
+  },
+  "checked": "22 ต.ค."
  }
 ]

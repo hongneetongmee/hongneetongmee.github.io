@@ -268,5 +268,20 @@
    "shopee": "185"
   },
   "checked": "22 ต.ค."
+ },
+ {
+  "n": 20,
+  "name": "เปลนอนแมวขาไม้",
+  "cat": "สัตว์เลี้ยง",
+  "img": "https://sg-test-11.slatic.net/p/70741a0357c1983266d27744b1316daf.jpg",
+  "links": {
+   "lazada": "https://s.lazada.co.th/s.Z9PjiA?t=p-i5YQBpH-sNR44aL",
+   "shopee": "https://s.shopee.co.th/an_redir?origin_link=https%3A%2F%2Fshopee.co.th%2Fproduct%2F1085345895%2F18886108677&affiliate_id=15347810016&sub_id=n20-lp"
+  },
+  "prices": {
+   "lazada": "84",
+   "shopee": "79"
+  },
+  "checked": "22 ต.ค."
  }
 ]

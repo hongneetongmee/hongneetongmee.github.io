@@ -298,5 +298,20 @@
    "shopee": "65"
   },
   "checked": "22 ต.ค."
+ },
+ {
+  "n": 22,
+  "name": "ถุงสุญญากาศ",
+  "cat": "จัดเก็บ",
+  "img": "https://th-live-01.slatic.net/p/e3cea1156c82f72ff31b34843edafa36.jpg",
+  "links": {
+   "lazada": "https://s.lazada.co.th/s.Z9Pjiz?t=p-i58zq87-sLDWWNs",
+   "shopee": "https://s.shopee.co.th/an_redir?origin_link=https%3A%2F%2Fshopee.co.th%2Fproduct%2F342470365%2F29126512757&affiliate_id=15347810016&sub_id=n22-lp"
+  },
+  "prices": {
+   "lazada": "14",
+   "shopee": "15"
+  },
+  "checked": "22 ต.ค."
  }
 ]

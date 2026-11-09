@@ -313,5 +313,20 @@
    "shopee": "15"
   },
   "checked": "22 ต.ค."
+ },
+ {
+  "n": 23,
+  "name": "ที่ลับเล็บแมวรูปอ่าง",
+  "cat": "สัตว์เลี้ยง",
+  "img": "https://th-live-01.slatic.net/p/5deee4754e62e6117bde5446faab452e.jpg",
+  "links": {
+   "lazada": "https://s.lazada.co.th/s.ZNtOEC?t=p-i5dB3xi-sNoKy5c&sub_id1=n23&sub_id2=lp",
+   "shopee": "https://s.shopee.co.th/an_redir?origin_link=https%3A%2F%2Fshopee.co.th%2Fproduct%2F996675217%2F25105024946&affiliate_id=15347810016&sub_id=n23-lp"
+  },
+  "prices": {
+   "lazada": "49",
+   "shopee": "60"
+  },
+  "checked": "23 ต.ค."
  }
 ]

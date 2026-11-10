@@ -343,5 +343,20 @@
    "shopee": "33"
   },
   "checked": "23 ต.ค."
+ },
+ {
+  "n": 25,
+  "name": "ชามแมวทรงสูงมีขา",
+  "cat": "สัตว์เลี้ยง",
+  "img": "https://th-live.slatic.net/p/391d0c3b9de3b1804a952a1cb9eba540.jpg",
+  "links": {
+   "lazada": "https://s.lazada.co.th/s.ZNtmZO?t=p-i5Gcbr0-sLvPeJF&sub_id1=n25&sub_id2=lp",
+   "shopee": "https://s.shopee.co.th/an_redir?origin_link=https%3A%2F%2Fshopee.co.th%2Fproduct%2F49956351%2F22951889335&affiliate_id=15347810016&sub_id=n25-lp"
+  },
+  "prices": {
+   "lazada": "25",
+   "shopee": "29"
+  },
+  "checked": "23 ต.ค."
  }
 ]

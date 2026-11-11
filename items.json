@@ -373,5 +373,20 @@
    "shopee": "75"
   },
   "checked": "7 พ.ย."
+ },
+ {
+  "n": 27,
+  "name": "ไม้ตกแมวขนนก",
+  "cat": "สัตว์เลี้ยง",
+  "img": "https://th-live-02.slatic.net/p/506af4b2131445f70e4747dc717718fa.jpg",
+  "links": {
+   "lazada": "https://s.lazada.co.th/s.Z9NrYT?t=p-i4YhEaz-sHvdpqc",
+   "shopee": "https://s.shopee.co.th/an_redir?origin_link=https%3A%2F%2Fshopee.co.th%2Fproduct%2F1328154472%2F26561049357&affiliate_id=15347810016&sub_id=n27-lp"
+  },
+  "prices": {
+   "lazada": "11",
+   "shopee": "9"
+  },
+  "checked": "23 ต.ค."
  }
 ]

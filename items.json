@@ -358,5 +358,20 @@
    "shopee": "29"
   },
   "checked": "23 ต.ค."
+ },
+ {
+  "n": 26,
+  "name": "แผ่นกันลื่นห้องน้ำ",
+  "cat": "ห้องน้ำ",
+  "img": "https://th-live-01.slatic.net/p/7ac497915f19aeb14492804af0ad2e45.jpg",
+  "links": {
+   "lazada": "https://s.lazada.co.th/s.ZoQera?t=p-i6GDWtJ-s2FZNsZW&sub_id1=n26&sub_id2=lp",
+   "shopee": "https://s.shopee.co.th/an_redir?origin_link=https%3A%2F%2Fshopee.co.th%2Fproduct%2F1228843928%2F43250441506&affiliate_id=15347810016&sub_id=n26-lp"
+  },
+  "prices": {
+   "lazada": "73",
+   "shopee": "75"
+  },
+  "checked": "7 พ.ย."
  }
 ]

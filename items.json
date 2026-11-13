@@ -418,5 +418,20 @@
    "shopee": "674"
   },
   "checked": "23 ต.ค."
+ },
+ {
+  "n": 30,
+  "name": "ตะกร้าผ้า PALLY",
+  "cat": "ซักผ้า-ทำความสะอาด",
+  "img": "https://th-live-01.slatic.net/p/efce02ed128a35c7456de98fa3367a3c.jpg",
+  "links": {
+   "lazada": "https://s.lazada.co.th/s.ZoQVz4?t=p-i56SXRL-sL14fDb&sub_id1=n30&sub_id2=lp",
+   "shopee": "https://s.shopee.co.th/an_redir?origin_link=https%3A%2F%2Fshopee.co.th%2Fproduct%2F36247626%2F23051413510&affiliate_id=15347810016&sub_id=n30-lp"
+  },
+  "prices": {
+   "lazada": "69",
+   "shopee": "69"
+  },
+  "checked": "23 ต.ค."
  }
 ]

@@ -763,5 +763,20 @@
    "shopee": "176"
   },
   "checked": "20 พ.ย."
+ },
+ {
+  "n": 53,
+  "name": "กล่องเก็บของในตู้เย็น 20 ชิ้น ใส่อาหาร เก็บเนื้อ",
+  "cat": "ห้องครัว",
+  "img": "https://sg-test-11.slatic.net/p/811f9bc4dee01709346f26fe11cf7aaa.jpg",
+  "links": {
+   "lazada": "https://s.lazada.co.th/s.ZE0DSd?t=p-i622IYH-sPdq2Lk&sub_id1=n53&sub_id2=lp",
+   "shopee": "https://s.shopee.co.th/an_redir?origin_link=https%3A%2F%2Fshopee.co.th%2Fproduct%2F1377806117%2F47406744986&affiliate_id=15347810016&sub_id=n53-lp"
+  },
+  "prices": {
+   "lazada": "153",
+   "shopee": "142"
+  },
+  "checked": "20 พ.ย."
  }
 ]
